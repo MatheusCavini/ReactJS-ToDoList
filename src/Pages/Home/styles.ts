@@ -30,3 +30,26 @@ export const Tabs = styled.div`
     align-items:center;
     height: 60vh;
 `
+export const Main = styled.div`
+    height: 100vh;
+    width: 82vw;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: start;
+`
+
+export const Header = styled.h1`
+    font-size: 40px;
+    font-weight:400;
+    color: #555;
+    margin: 16px;
+`
+
+export const TitleAndFilter = styled.div`
+    height: 20px;
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`

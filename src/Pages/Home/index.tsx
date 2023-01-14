@@ -6,6 +6,8 @@ import Settings from "../../Img/settings.svg";
 import Folder from "../../Img/folder.svg";
 import Logout from "../../Img/logout.svg"
 import SidebarItem from "../../Components/SidebarItem";
+import TaskCard from "../../Components/TaskCard"; 
+
 
 const Home:React.FC = ()=>{
     return(
@@ -19,6 +21,13 @@ const Home:React.FC = ()=>{
                 </S.Tabs>
                 <SidebarItem icon={Logout}name="Logout" isActive={false}></SidebarItem>
             </S.Sidebar>
+            <S.Main>
+                <S.Header>All your tasks</S.Header>
+                <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
+                <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
+                <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
+                <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
+            </S.Main>
         </S.Page>
     )
 }
