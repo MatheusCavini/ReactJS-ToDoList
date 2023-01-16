@@ -1,28 +1,34 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import * as S from "./styles";
 import Edit from "../../Img/edit.svg";
 import Erase from "../../Img/erase.svg";
+import { TaskListContext } from "../../Contexts/taskListContext";
+import { TaskListType } from "../../Contexts/taskType";
 
 interface TaskCardProps{
+    id:number;
     name: string;
     list: string;
     color: string;
+    done: boolean;
 };
 
-const TaskCard: React.FC<TaskCardProps> =({name,list, color})=>{
-    const[check, setCheck] = useState(false);
+const TaskCard: React.FC<TaskCardProps> =({id, name,list, color, done})=>{
+
+    const{checkTask} = useContext(TaskListContext) as TaskListType;
+
 
     function handleCheck(){
-        setCheck(!check);
+        checkTask(id);
     }
 
     return(
         <S.Container>
             <S.CheckField>
-                <S.CheckboxRing onClick={handleCheck}><S.CheckFill done={check}/></S.CheckboxRing>
+                <S.CheckboxRing onClick={handleCheck}><S.CheckFill done={done}/></S.CheckboxRing>
             </S.CheckField>
             <S.Description>
-                <S.Name done={check}>{name}</S.Name>
+                <S.Name done={done}>{name}</S.Name>
                 <S.ListBelong>
                     <S.ColorTag color={color}/>
                     <S.ListName>{list}</S.ListName>
