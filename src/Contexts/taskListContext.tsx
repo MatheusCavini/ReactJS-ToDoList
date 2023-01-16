@@ -11,21 +11,21 @@ export const TaskListContextProvider: React.FC<ChildrenProps> = ({children}) =>{
     const [taskList, setTaskList] = useState<TaskProps[]>([
         {
             id:1,
-            title: "Exemple task",
+            title: "Example task",
             done: false,
             categorie: "Home",
             color: "#FF9C9C",
         },
         {
             id:2,
-            title: "Exemple task 2",
+            title: "Example task 2",
             done: false,
             categorie: "Home",
             color: "#FF9C9C",
         },
         {
             id:3,
-            title: "Exemple task 3",
+            title: "Example task 3",
             done: true,
             categorie: "Home",
             color: "#FF9C9C",
@@ -52,10 +52,16 @@ export const TaskListContextProvider: React.FC<ChildrenProps> = ({children}) =>{
               setTaskList([...taskList])
             }
         });
-    }
+    };
+
+    const deleteTask = (id:number)=>{
+        const index = taskList.findIndex((task:TaskProps)=>task.id == id);
+        taskList.splice(index,1);
+        setTaskList([...taskList])
+    };
 
     return(
-        <TaskListContext.Provider value={{taskList, addTask, checkTask}}>
+        <TaskListContext.Provider value={{taskList, addTask, checkTask, deleteTask}}>
             {children}
         </TaskListContext.Provider>
     )
