@@ -88,6 +88,10 @@ export const CheckboxRing = styled.div`
     align-items: center;
     justify-content: center;
 
+    &:hover{
+        cursor: pointer;
+    }
+
 `
 export const CheckFill = styled.div<DoneProps>`
     background: #7f56da;
@@ -96,5 +100,4 @@ export const CheckFill = styled.div<DoneProps>`
     border-radius:10px;
     ${props => !props.done &&
     css`display:none;`}
-
 `
