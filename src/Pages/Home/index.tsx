@@ -7,7 +7,7 @@ import Folder from "../../Img/folder.svg";
 import Logout from "../../Img/logout.svg"
 import SidebarItem from "../../Components/SidebarItem";
 import TaskCard from "../../Components/TaskCard"; 
-
+import AddTask from "../../Components/AddTask";
 
 const Home:React.FC = ()=>{
     return(
@@ -27,6 +27,7 @@ const Home:React.FC = ()=>{
                 <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
                 <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
                 <TaskCard name="Take care of the pets" list="Home" color="#FF9C9C"/>
+                <AddTask></AddTask>
             </S.Main>
         </S.Page>
     )
