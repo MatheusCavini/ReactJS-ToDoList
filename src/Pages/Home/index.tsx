@@ -9,14 +9,21 @@ import SidebarItem from "../../Components/SidebarItem";
 import TaskCard from "../../Components/TaskCard"; 
 import AddTask from "../../Components/AddTask";
 import { TaskListContext } from "../../Contexts/taskListContext";
-import { TaskListType, TaskProps } from "../../Contexts/taskType";
+import { TaskListType } from "../../Contexts/taskType";
 import FilterTag from "../../Components/FilterTag";
 
 
+
+
+
 import Filter from "../../Img/filter.svg";
+import { DeleteContext } from "../../Contexts/deleteContext";
+import { DeleteType } from "../../Contexts/deleteType";
+import DeleteModal from "../../Components/DeleteModal";
 
 const Home:React.FC = ()=>{
     const{taskList, doneTasks, notDoneTasks} = useContext(TaskListContext) as TaskListType;
+    const{showDelete} = useContext(DeleteContext) as DeleteType;
     const [listToDisplay, setListToDisplay] = useState(0);
     const listOfLists = [taskList, doneTasks, notDoneTasks];
 
@@ -45,11 +52,8 @@ const Home:React.FC = ()=>{
         setDoneActive(false);
         setNotDoneActive(true);
     };
-
-
-
-
     return(
+        
         <S.Page>
             <S.Sidebar>
                 <S.Img src={Logo}/>
@@ -74,8 +78,11 @@ const Home:React.FC = ()=>{
                 {listOfLists[listToDisplay].map(task =><TaskCard id={task.id} name={task.title} list={task.categorie} color={task.color} done={task.done}/>)}
                 <AddTask></AddTask>
             </S.Main>
+            {showDelete && <DeleteModal/>}
         </S.Page>
-    )
-}
+        
+        
+    );
+};
 
-export default Home
+export default Home;

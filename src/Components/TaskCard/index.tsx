@@ -4,6 +4,9 @@ import Edit from "../../Img/edit.svg";
 import Erase from "../../Img/erase.svg";
 import { TaskListContext } from "../../Contexts/taskListContext";
 import { TaskListType } from "../../Contexts/taskType";
+import { DeleteContext } from "../../Contexts/deleteContext";
+import { DeleteType } from "../../Contexts/deleteType";
+
 
 
 interface TaskCardProps{
@@ -16,17 +19,16 @@ interface TaskCardProps{
 
 const TaskCard: React.FC<TaskCardProps> =({id, name,list, color, done})=>{
 
-    const{checkTask, deleteTask} = useContext(TaskListContext) as TaskListType;
-
+    const{setShowDelete,setId} = useContext(DeleteContext) as DeleteType;
+    const{checkTask} = useContext(TaskListContext) as TaskListType;
     
-
-
     function handleCheck(){
         checkTask(id);
     }
 
     function handleDelete(){
-        deleteTask(id);
+        setShowDelete(true);
+        setId(id);
     }
 
     return(

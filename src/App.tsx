@@ -3,15 +3,16 @@ import React from 'react';
 import GlobalStyle from './global'
 import Login from "./Pages/Login/index"
 import Home from './Pages/Home/index';
-import { TaskListContextProvider } from './Contexts/taskListContext';
+import ContextProviders from './contextProviders';
 
 function App() {
   return (
-    <TaskListContextProvider>
+    <ContextProviders>
       <Home></Home>
     
       <GlobalStyle/>
-    </TaskListContextProvider>
+    </ContextProviders>
+     
   );
 }
 
