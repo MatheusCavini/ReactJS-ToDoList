@@ -6,6 +6,7 @@ import Settings from "../../Img/settings.svg";
 import Folder from "../../Img/folder.svg";
 import Logout from "../../Img/logout.svg"
 import SidebarItem from "../../Components/SidebarItem";
+import ExpandSidebarItem from "../../Components/ExpandSidebarItem";
 import TaskCard from "../../Components/TaskCard"; 
 import AddTask from "../../Components/AddTask";
 import { TaskListContext } from "../../Contexts/taskListContext";
@@ -59,7 +60,7 @@ const Home:React.FC = ()=>{
                 <S.Img src={Logo}/>
                 <S.Tabs>
                     <SidebarItem icon={TaskFill} name="Tasks" isActive={true} ></SidebarItem>
-                    <SidebarItem icon={Folder} name="Categories" isActive={false} ></SidebarItem>
+                    <ExpandSidebarItem icon={Folder} name="Categories"  ></ExpandSidebarItem>
                     <SidebarItem icon={Settings} name="Settings" isActive={false} ></SidebarItem>
                 </S.Tabs>
                 <SidebarItem icon={Logout}name="Logout" isActive={false}></SidebarItem>
