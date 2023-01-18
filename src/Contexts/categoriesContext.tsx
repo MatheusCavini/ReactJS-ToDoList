@@ -12,15 +12,20 @@ export const CategoriesContextProvider:React.FC<ChildrenProps> = ({children})=>{
     const [categList, setCategList] = useState<CategorieProps[]>([
         {
             id:0,
+            name: "None",
+            color: "#afafaf"
+        },
+        {
+            id:1,
             name: "Home",
             color: "#FF9C9C"
         },
-        {   id:1,
+        {   id:2,
             name:"School",
             color: "#FFD79C"
         },
         {
-            id:2,
+            id:3,
             name:"Shopping list",
             color: "#9CD0FF"
         },

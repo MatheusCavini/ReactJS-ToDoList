@@ -37,6 +37,7 @@ export const Main = styled.div`
     flex-direction: column;
     align-items:center;
     justify-content: start;
+    overflow-y:scroll;
 `
 
 export const Header = styled.h1`

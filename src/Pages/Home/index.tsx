@@ -12,19 +12,19 @@ import AddTask from "../../Components/AddTask";
 import { TaskListContext } from "../../Contexts/taskListContext";
 import { TaskListType } from "../../Contexts/taskType";
 import FilterTag from "../../Components/FilterTag";
-
-
-
-
-
 import Filter from "../../Img/filter.svg";
 import { DeleteContext } from "../../Contexts/deleteContext";
 import { DeleteType } from "../../Contexts/deleteType";
 import DeleteModal from "../../Components/DeleteModal";
+import AddModal from "../../Components/AddModal";
+import { AddContext } from "../../Contexts/addContext";
+import { AddType } from "../../Contexts/addType";
+
 
 const Home:React.FC = ()=>{
     const{taskList, doneTasks, notDoneTasks} = useContext(TaskListContext) as TaskListType;
     const{showDelete} = useContext(DeleteContext) as DeleteType;
+    const{showAdd} =  useContext(AddContext) as AddType;
     const [listToDisplay, setListToDisplay] = useState(0);
     const listOfLists = [taskList, doneTasks, notDoneTasks];
 
@@ -80,6 +80,7 @@ const Home:React.FC = ()=>{
                 <AddTask></AddTask>
             </S.Main>
             {showDelete && <DeleteModal/>}
+            {showAdd && <AddModal/>}
         </S.Page>
         
         
