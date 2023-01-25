@@ -30,7 +30,7 @@ const ExpandSidebarItem:React.FC<SidebarItemProps> =({name, icon})=>{
                 <S.Arrow isActive={active} src={Arrow}/>
             </S.Container>
             <S.CatArea isActive={active}>
-                {categList.map(cat=><CategorieItem name={cat.name} color={cat.color}/>)}
+                {categList.map(cat=><CategorieItem name={cat.name} color={cat.color} />)}
                 <S.AddArea>
                     <S.AddIcon src={Add}/>
                     <S.AddText>Add new</S.AddText>

@@ -1,15 +1,24 @@
 import React from 'react';
 
 import GlobalStyle from './global'
-import Login from "./Pages/Login/index"
-import Home from './Pages/Home/index';
 import ContextProviders from './contextProviders';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Pages/Login';
+import Home from './Pages/Home';
+import CategoriePage from './Pages/Categorie';
+
 
 function App() {
   return (
     <ContextProviders>
-      <Home></Home>
-    
+      <BrowserRouter>
+        <Routes>
+			    <Route path="/" element={<Home/>} />
+	        <Route path="/login" element={<Login/>} />
+          <Route path='/categorie/:name' element = {<CategoriePage/>}></Route>
+		    </Routes>
+      </BrowserRouter>
       <GlobalStyle/>
     </ContextProviders>
      

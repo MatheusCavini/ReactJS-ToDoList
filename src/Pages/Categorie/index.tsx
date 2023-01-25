@@ -1,7 +1,10 @@
 import React, {useContext, useState} from "react";
+
+import {useParams} from "react-router-dom";
+
 import * as S from "./styles";
 import Logo from "../../Img/Logo.png"
-import TaskFill from "../../Img/taskFill.png";
+import TaskFill from "../../Img/task.png";
 import Settings from "../../Img/settings.svg";
 import Folder from "../../Img/folder.svg";
 import Logout from "../../Img/logout.svg"
@@ -22,12 +25,17 @@ import { AddType } from "../../Contexts/addType";
 import { Link } from "react-router-dom";
 
 
-const Home:React.FC = ()=>{
+const CategoriePage:React.FC = ()=>{
+    const {name} = useParams<string>()
+
     const{taskList, doneTasks, notDoneTasks} = useContext(TaskListContext) as TaskListType;
     const{showDelete} = useContext(DeleteContext) as DeleteType;
     const{showAdd} =  useContext(AddContext) as AddType;
     const [listToDisplay, setListToDisplay] = useState(0);
-    const listOfLists = [taskList, doneTasks, notDoneTasks];
+    const listOfLists = [
+        taskList.filter(task => task.categorie==name), 
+        doneTasks.filter(task => task.categorie==name), 
+        notDoneTasks.filter(task => task.categorie==name)];
 
     const [allActive, setAllActive] = useState(true);
     const [doneActive, setDoneActive] = useState(false);
@@ -60,8 +68,10 @@ const Home:React.FC = ()=>{
             <S.Sidebar>
                 <S.Img src={Logo}/>
                 <S.Tabs>
-                    <SidebarItem icon={TaskFill} name="Tasks" isActive={true} ></SidebarItem>
-                    <ExpandSidebarItem icon={Folder} name="Categories"  ></ExpandSidebarItem>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                        <SidebarItem icon={TaskFill} name="Tasks" isActive={false} ></SidebarItem>
+                    </Link>
+                    <ExpandSidebarItem icon={Folder} name="Categories"   ></ExpandSidebarItem>
                     <SidebarItem icon={Settings} name="Settings" isActive={false} ></SidebarItem>
                 </S.Tabs>
                 <Link to="/login" style={{ textDecoration: 'none' }}>
@@ -70,7 +80,7 @@ const Home:React.FC = ()=>{
     
             </S.Sidebar>
             <S.Main>
-                <S.Header>All your tasks</S.Header>
+                <S.Header>{name}</S.Header>
                 <S.TitleAndFilter>
                     <S.Title onClick={handleDone}>Tasks </S.Title>
                     <S.FilterField>
@@ -91,4 +101,4 @@ const Home:React.FC = ()=>{
     );
 };
 
-export default Home;
+export default CategoriePage;

@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 import Logo from "../../Img/Logo.png";
+import { Link } from "react-router-dom";
 
 
 const Login: React.FC = ()=>{
@@ -15,9 +16,11 @@ const Login: React.FC = ()=>{
                 <S.FieldName>Email</S.FieldName>
                 <S.InputField placeholder="Insert your email"></S.InputField>
                 <S.FieldName>Password</S.FieldName>
-                <S.InputField placeholder="Insert your password"></S.InputField>
+                <S.InputField placeholder="Insert your password" type="password"></S.InputField>
                 <S.KeepSigned><S.Checkbox/><S.Subtitle>Remember me</S.Subtitle></S.KeepSigned>
-                <S.SignIn>Sign In</S.SignIn>
+                <Link to="/">
+                    <S.SignIn>Sign In</S.SignIn>
+                </Link>
                 <S.Subtitle>Don't have an account? <a>Sign Up</a></S.Subtitle>
             </S.RightSide>
         </S.Page>
