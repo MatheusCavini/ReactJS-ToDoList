@@ -23,6 +23,7 @@ import AddModal from "../../Components/AddModal";
 import { AddContext } from "../../Contexts/addContext";
 import { AddType } from "../../Contexts/addType";
 import { Link } from "react-router-dom";
+import AuthContext, {AuthType, UserDataProps} from "../../Contexts/authContext";
 
 
 const CategoriePage:React.FC = ()=>{
@@ -40,6 +41,8 @@ const CategoriePage:React.FC = ()=>{
     const [allActive, setAllActive] = useState(true);
     const [doneActive, setDoneActive] = useState(false);
     const [notDoneActive, setNotDoneActive] = useState(false);
+
+    const {setUserData} = useContext(AuthContext) as AuthType;
 
    
    
@@ -62,6 +65,11 @@ const CategoriePage:React.FC = ()=>{
         setDoneActive(false);
         setNotDoneActive(true);
     };
+
+    function handleLogout(){
+        localStorage.removeItem('@Project:email');
+        setUserData({email:""});
+    };
     return(
         
         <S.Page>
@@ -74,7 +82,7 @@ const CategoriePage:React.FC = ()=>{
                     <ExpandSidebarItem icon={Folder} name="Categories"   ></ExpandSidebarItem>
                     <SidebarItem icon={Settings} name="Settings" isActive={false} ></SidebarItem>
                 </S.Tabs>
-                <Link to="/login" style={{ textDecoration: 'none' }}>
+                <Link to="/login" style={{ textDecoration: 'none' }} onClick={handleLogout}>
                     <SidebarItem icon={Logout}name="Logout" isActive={false}></SidebarItem>
                 </Link>
     

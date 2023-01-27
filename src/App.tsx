@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import CategoriePage from './Pages/Categorie';
+import ProtectedRoute from './Routes/Route';
 
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
     <ContextProviders>
       <BrowserRouter>
         <Routes>
-			    <Route path="/" element={<Home/>} />
-	        <Route path="/login" element={<Login/>} />
-          <Route path='/categorie/:name' element = {<CategoriePage/>}></Route>
+			    <Route path="/" element={<ProtectedRoute priv={true}><Home/></ProtectedRoute>} />
+	        <Route path="/login" element={<ProtectedRoute priv={false}><Login/></ProtectedRoute>} />
+          <Route path='/categorie/:name' element = {<ProtectedRoute priv={true}><CategoriePage/></ProtectedRoute>}></Route>
 		    </Routes>
       </BrowserRouter>
       <GlobalStyle/>

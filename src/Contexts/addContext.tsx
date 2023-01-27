@@ -3,8 +3,7 @@ import { AddType } from "./addType";
 
 export interface ChildrenProps {
     children: React.ReactNode;
-
-  }
+}
 
 export const AddContext = createContext<AddType|null>(null);
 
