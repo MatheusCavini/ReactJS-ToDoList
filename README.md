@@ -4,6 +4,13 @@ This project implements the Front-End for a simple To-Do List web application, u
 It includes the login page and the general UI of the app. <br/>
 The login authentication logic and the tasks database for each user are not implemented, since this project aims to be a Front-End study only.
 
+## Demonstration
+[demo.webm](https://user-images.githubusercontent.com/122649188/214989194-fce2bbc7-65fa-4c8c-adf4-424702602ea9.webm)
+
+## Inspiration
+The login page was inspired in [this design](https://dribbble.com/shots/17564792-Log-in-page-Untitled-UI/attachments/12710737?mode=media) by Jordan Hughes.
+The home page was inspired in [this design](https://dribbble.com/shots/14440819-KosmoTime-Task-Manager/attachments/6121947?mode=media) by Mik Skuza.
+
 ## Functionalities
 • Login page, including Sign In button, which redirects to the main application; <br/>
 • Aplication UI with navigation sidebar and area for the the to-do list; <br/>
