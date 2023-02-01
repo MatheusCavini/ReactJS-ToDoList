@@ -17,7 +17,7 @@ The home page was inspired in [this design](https://dribbble.com/shots/14440819-
 
 ## Functionalities
 • Login page, including Sign In button, which redirects to the main application; <br/>
-• Aplication UI with navigation sidebar and area for the the to-do list; <br/>
+• Application UI with navigation sidebar and area for the to-do list; <br/>
 • Add new task, setting name and categorie properties; <br/>
 • Delete task, with a modal for confirming the action; <br/>
 • Check task as done via checkbox; <br/>
