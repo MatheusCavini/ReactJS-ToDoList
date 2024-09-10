@@ -1,20 +1,17 @@
-import React, {useState, createContext, ReactNode} from "react";
-import { AddType } from "./addType";
+import React, { useState, createContext } from 'react';
+import { AddType } from './addType';
 
 export interface ChildrenProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export const AddContext = createContext<AddType|null>(null);
+export const AddContext = createContext<AddType | null>(null);
 
-export const AddContextProvider: React.FC<ChildrenProps> = ({children}) =>{
-    const [showAdd, setShowAdd] = useState(false);
-    const [id, setId] = useState(0);
+export const AddContextProvider: React.FC<ChildrenProps> = ({ children }) => {
+  const [showAdd, setShowAdd] = useState(false);
+  const [id, setId] = useState(0);
 
-    return(
-        <AddContext.Provider value={{showAdd, setShowAdd, id, setId}}>
-            {children}
-        </AddContext.Provider>
-    );
-
-}
+  return (
+    <AddContext.Provider value={{ showAdd, setShowAdd, id, setId }}>{children}</AddContext.Provider>
+  );
+};

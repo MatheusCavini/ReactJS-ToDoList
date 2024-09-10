@@ -1,40 +1,31 @@
-import React, {createContext, useState, ReactNode} from "react";
-import { CategorieProps, CategorieContextType } from "./categoriesType";
+import React, { createContext } from 'react';
+import { CategorieProps, CategorieContextType } from './categoriesType';
 
 interface ChildrenProps {
-    children: React.ReactNode;
-  };
+  children: React.ReactNode;
+}
 
-export const CategoriesContext = createContext<CategorieContextType|null>(null);
+const categList: CategorieProps[] = [
+  {
+    id: 0,
+    name: 'None',
+    color: '#afafaf',
+  },
+  {
+    id: 1,
+    name: 'Home',
+    color: '#FF9C9C',
+  },
+  { id: 2, name: 'School', color: '#FFD79C' },
+  {
+    id: 3,
+    name: 'Shopping list',
+    color: '#9CD0FF',
+  },
+];
 
-export const CategoriesContextProvider:React.FC<ChildrenProps> = ({children})=>{
+export const CategoriesContext = createContext<CategorieContextType | null>(null);
 
-    const [categList, setCategList] = useState<CategorieProps[]>([
-        {
-            id:0,
-            name: "None",
-            color: "#afafaf"
-        },
-        {
-            id:1,
-            name: "Home",
-            color: "#FF9C9C"
-        },
-        {   id:2,
-            name:"School",
-            color: "#FFD79C"
-        },
-        {
-            id:3,
-            name:"Shopping list",
-            color: "#9CD0FF"
-        },
-    ])
-
-    return(
-        <CategoriesContext.Provider value={{categList}}>
-            {children}
-        </CategoriesContext.Provider>
-    )
+export const CategoriesContextProvider: React.FC<ChildrenProps> = ({ children }) => {
+  return <CategoriesContext.Provider value={{ categList }}>{children}</CategoriesContext.Provider>;
 };
-

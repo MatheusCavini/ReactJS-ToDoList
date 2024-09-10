@@ -1,30 +1,19 @@
-import React, { useContext } from "react";
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
-import { ChildrenProps } from "../Contexts/deleteContext";
-
-import AuthContext, {AuthType} from "../Contexts/authContext";
+import React, { useContext } from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import AuthContext, { AuthType } from '../Contexts/authContext';
 
 interface ProtectedRouteProps {
-    children: React.ReactNode;
-    priv:boolean;
+  children?: JSX.Element | undefined;
 }
 
-const ProtectedRoute:React.FC<ProtectedRouteProps> = ({ children, priv}) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  children,
+}: ProtectedRouteProps): JSX.Element | React.ReactElement => {
+  const { userData } = useContext(AuthContext) as AuthType;
 
-    const{userData} = useContext(AuthContext) as AuthType;
+  if (userData?.email) return children || <Outlet />;
 
-
-    
-    
-    if (!!userData.email === priv) {
-      return <>{children}</>;
-    }else{
-        return <Navigate to={{
-          pathname: priv ? "/login":"/"
-        }}/>
-  }
-
-  
+  return <Navigate to={{ pathname: '/login' }} />;
 };
 
-  export default ProtectedRoute;
+export default ProtectedRoute;
